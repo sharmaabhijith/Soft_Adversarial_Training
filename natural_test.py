@@ -12,7 +12,7 @@ from torchvision import datasets, transforms
 from torch.optim.lr_scheduler import StepLR
 from pathlib import Path
 import time
-
+import onnx
 # import network
 from model.network.LeNet import LeNet
 from model.network.MyNetV1 import MyNetV1
@@ -101,7 +101,7 @@ def main():
                         help="load the trained model weights or not (default: no)")
     parser.add_argument("--model", type=str, default="LeNet",
                         help="choose the model to train (default: LeNet)")
-    parser.add_argument("--model-path", default="./model/weights/",
+    parser.add_argument("--model-path", default="./model/natural/soft/weights/",
                         help="path to trained model")
     args = parser.parse_args()
 
@@ -139,6 +139,7 @@ def main():
         print("Wrong model name. Try again!")
         exit()
     print("\nTest model:\t{}".format(args.model))
+    #model=onnx.load('/home/abhijith/Documents/MSc/research/adver_train/Soft_Adversarial_MNIST/model/natural/weights/mynetv2.onnx')
     test(model, device, test_loader)
 
 if __name__=="__main__":

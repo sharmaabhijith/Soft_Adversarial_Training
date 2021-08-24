@@ -50,7 +50,6 @@ class PGD(Attack):
         loss = nn.CrossEntropyLoss()
 
         adv_images = images.clone().detach()
-
         if self.random_start:
             # Starting at a uniformly random point
             adv_images = adv_images + torch.empty_like(adv_images).uniform_(-self.eps, self.eps)

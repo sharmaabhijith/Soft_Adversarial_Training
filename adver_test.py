@@ -110,7 +110,7 @@ def main():
                         help="load the trained model weights or not (default: no)")
     parser.add_argument("--model", type=str, default="LeNet",
                         help="choose the model to train (default: LeNet)")
-    parser.add_argument("--model-path", default="./model/weights/",
+    parser.add_argument("--model-path", default="./model/adver/soft/weights/",
                         help="path to trained model")
     parser.add_argument("--attack", default="PGD",
                         help="Type of attacks: PGD/FGSM")
